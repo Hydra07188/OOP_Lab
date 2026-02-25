@@ -1,4 +1,4 @@
-package src.com.library.lab01;
+package com.library.lab01;
 import java.time.LocalDate;
 
 public class Book {

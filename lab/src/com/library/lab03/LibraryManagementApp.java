@@ -1,4 +1,4 @@
-package src.com.library.lab03;
+package com.library.lab03;
 
 import java.util.ArrayList;
 import java.util.List;

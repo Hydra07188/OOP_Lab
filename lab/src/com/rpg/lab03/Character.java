@@ -1,4 +1,4 @@
-package src.com.rpg.lab03;
+package com.rpg.lab03;
 
 public class Character {
     protected String name;

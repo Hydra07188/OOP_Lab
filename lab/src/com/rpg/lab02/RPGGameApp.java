@@ -1,4 +1,4 @@
-package src.com.rpg.lab02;
+package com.rpg.lab02;
 
 public class RPGGameApp {
 

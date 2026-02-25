@@ -1,4 +1,4 @@
-package src.com.library.lab01;
+package com.library.lab01;
 
 public class LibraryManagementApp {
     public static void main(String[] args) {

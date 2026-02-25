@@ -1,4 +1,4 @@
-package src.com.rpg.lab01;
+package com.rpg.lab01;
 
 public class RPGGameApp {
     public static void main(String[] args) {

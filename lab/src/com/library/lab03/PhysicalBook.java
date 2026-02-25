@@ -1,4 +1,4 @@
-package src.com.library.lab03;
+package com.library.lab03;
 
 public class PhysicalBook extends LibraryItem {
     private String shelfLocation;
