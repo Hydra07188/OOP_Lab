@@ -21,6 +21,11 @@ public class LibraryItem {
     }
 
     public String getTitle() { return title; }
+    public double getPrice() { return price; }
+
+    public void printSummary() {
+        System.out.println("LibraryItem [Title='" + title + "', Status='" + status + "']");
+    }
 
     public void displayDetails() {
         System.out.println("Title: " + title);

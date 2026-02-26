@@ -9,11 +9,14 @@ public class Archer extends Character {
     }
 
     @Override
-    public void attack(Character target) {
-        System.out.println("(Using Archer.attack() - Ranged arrow attack with accuracy)");
-        System.out.println(name + " (" + characterClass + ") shoots an arrow at " + target.getName() + " with " + weapon.getName() + "!");
-        int totalDamage = this.damage + weapon.getBaseDamage();
-        System.out.println("Raw Attack Damage: " + totalDamage);
+    public void attack(Destructible target) {
+        String targetName = (target instanceof Character) ? ((Character) target).getName() : "Target";
+        System.out.println(name + " (" + characterClass + ") shoots a precise arrow at " + targetName + "!");
+        int baseDamage = this.damage + weapon.getBaseDamage();
+        int rangeBonus = (int)(baseDamage * 0.3);
+        int totalDamage = baseDamage + rangeBonus;
+        System.out.println("Base Damage: " + baseDamage + " + Range Bonus: " + rangeBonus + " = " + totalDamage);
+        System.out.println("Accuracy: " + accuracy + "% (HIT!)");
         target.takeDamage(totalDamage);
     }
 

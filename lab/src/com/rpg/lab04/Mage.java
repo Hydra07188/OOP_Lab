@@ -11,11 +11,20 @@ public class Mage extends Character {
     }
 
     @Override
-    public void attack(Character target) {
-        System.out.println("(Using Mage.attack() - Magic Missile spell)");
-        System.out.println(name + " (" + characterClass + ") casts Magic Missile at " + target.getName() + "!");
-        int totalDamage = this.damage + weapon.getBaseDamage();
-        System.out.println("Raw Attack Damage: " + totalDamage);
+    public void attack(Destructible target) {
+        String targetName = (target instanceof Character) ? ((Character) target).getName() : "Target";
+        if (mana < 30) {
+            System.out.println(name + " attempts to cast Magic Missile, but has insufficient mana!");
+            System.out.println("Current Mana: " + mana + "/" + maxMana + " (Need: 30)");
+            return;
+        }
+        System.out.println(name + " (" + characterClass + ") casts MAGIC MISSILE at " + targetName + "!");
+        int baseSpell = this.damage + weapon.getBaseDamage();
+        int spellBonus = 10;
+        int totalDamage = baseSpell + spellBonus;
+        mana -= 30;
+        System.out.println("Spell Damage: " + totalDamage + " (Base: " + baseSpell + " + Spell Bonus: " + spellBonus + ")");
+        System.out.println("Mana Used: 30 | Remaining: " + mana + "/" + maxMana);
         target.takeDamage(totalDamage);
     }
 

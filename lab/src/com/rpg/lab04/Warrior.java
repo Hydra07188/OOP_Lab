@@ -9,11 +9,11 @@ public class Warrior extends Character {
     }
 
     @Override
-    public void attack(Character target) {
-        System.out.println(" (Using Warrior.attack() - 1.5x damage bonus)");
-        System.out.println(name + " (" + characterClass + ") attacks " + target.getName() + " with " + weapon.getName() + "!");
+    public void attack(Destructible target) {
+        String targetName = (target instanceof Character) ? ((Character) target).getName() : "Target";
+        System.out.println(name + " (" + characterClass + ") performs a POWERFUL STRIKE on " + targetName + "!");
         int totalDamage = (int) ((this.damage + weapon.getBaseDamage()) * 1.5);
-        System.out.println("Raw Attack Damage: " + totalDamage);
+        System.out.println("Base Damage: " + (this.damage + weapon.getBaseDamage()) + " Enhanced: " + totalDamage + " (1.5x multiplier)");
         target.takeDamage(totalDamage);
     }
 
@@ -21,7 +21,7 @@ public class Warrior extends Character {
     public void takeDamage(int incomingDamage) {
         int reducedDamage = incomingDamage - this.armorValue;
         if (reducedDamage < 0) reducedDamage = 0;
-
+        System.out.println(name + "'s Armor: " + armorValue + " (reduces damage from " + incomingDamage + " to " + reducedDamage + ")");
         super.takeDamage(reducedDamage);
     }
 
