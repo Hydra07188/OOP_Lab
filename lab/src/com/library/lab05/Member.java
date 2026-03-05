@@ -1,7 +1,5 @@
 package com.library.lab05;
 
-
-
 public class Member {
     private String memberId;
     private String memberName;
@@ -60,7 +58,7 @@ public class Member {
     System.out.println(" Name: " + memberName);
     System.out.println(" Membership Type: " + membershipStrategy.getMembershipType());
     System.out.println(" Membership Cost: " + membershipStrategy.getMembershipCost() + " Baht");
-    System.out.println(" Borow Limit: " + (membershipStrategy.hasUnlimitedBorrowing() ? "Unlimited" : membershipStrategy.getBorrowLimit()));
+    System.out.println(" Borrow Limit: " + (membershipStrategy.hasUnlimitedBorrowing() ? "Unlimited" : membershipStrategy.getBorrowLimit()));
     System.out.println(" Currently Borrowed: " + borrowedCount);
     System.out.println(" Loan Period: " + membershipStrategy.getLoanPeriodDays() + " days");
     }
@@ -93,7 +91,7 @@ public class Member {
     }
     public void recordReturn(LibraryItem item) {
         if (item != null && borrowedCount > 0) {
-            borrowedCount++;
+            borrowedCount--;
         }
     }
 

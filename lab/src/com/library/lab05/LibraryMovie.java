@@ -15,7 +15,6 @@ public class LibraryMovie implements DigitalContent, Taxable {
     private LocalDate returnDueDate;
     private Member borrowedBy;
     private final String uniqueId;
-    private String genrel;
 
     public LibraryMovie(String uniqueId) {
         this.uniqueId = UUID.randomUUID().toString();
@@ -38,7 +37,7 @@ public class LibraryMovie implements DigitalContent, Taxable {
         System.out.println("Streaming '" + this.title + "' from URL: " + this.streamingUrl);
         System.out.println("Connecting to streaming server...");
         System.out.println("Movie playback started!");
-        System.out.printf("Duration: %.0f minutes | Director: %s\n", durationMinutes, director); // เปลี่ยน %.Of เป็น %.0f
+        System.out.printf("Duration: %.0f minutes | Director: %s\n", durationMinutes, director);
         System.out.println("Quality: 1080p HD | Enjoy watching!");
     }
 
@@ -47,14 +46,14 @@ public class LibraryMovie implements DigitalContent, Taxable {
         System.out.println("Downloading '" + this.title + "' from URL: " + this.streamingUrl);
         System.out.println("Calculating file size based on quality...");
         double estimatedSizeMB = (durationMinutes / 60) * 175;
-        System.out.printf("Downloading file... (%.2f MB)\n", estimatedSizeMB); // จัด Format ใหม่
+        System.out.printf("Downloading file... (%.2f MB)\n", estimatedSizeMB);
         System.out.println("Download complete! File saved to your device.");
         System.out.println("You can now watch the movie offline.");
     }
 
     @Override
-    public double calculateTax() { // ดึงออกมาไม่ให้ซ้อนกับ download()
-        return this.price * 0.05; // ภาษี 5% สำหรับ Digital Content
+    public double calculateTax() {
+        return this.price * 0.05;
     }
 
 
@@ -96,12 +95,12 @@ public class LibraryMovie implements DigitalContent, Taxable {
         this.releaseYear = releaseYear;
     }
 
-    public String getGenrel() {
-        return genrel;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenrel(String genrel) {
-        this.genrel = genrel;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public double getPrice() { return price; }
